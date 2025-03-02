@@ -105,7 +105,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```Shell
-  gh repo clone WatsonWBlair/git_literate
+  gh repo clone WatsonWBlair/git_together
 ```
 
 
