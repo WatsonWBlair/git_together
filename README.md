@@ -26,17 +26,19 @@ Point will be deducted for poor behavior: mean comments, frivolous use of `Reque
 - [ ] Publish repository
   - [ ] Update README
   - [ ] Update Contributors
-- [ ] Use Pull Request to Peer Review challenge solution
+- [ ] Open a `Draft Pull Request` and ask for help from your teammates.
+- [ ] Use Pull Request to Peer Review solutions
   - [ ] Identify an unhandled edge case.
+    - [ ] Add a test case for the edge case.
   - [ ] Suggest an improvement to the current approach.
   - [ ] Suggest an alternate approach and discuss tradeoffs.
-- [ ] Resolve a merge conflict
-- [ ] Open a `Draft Pull Request` and ask for help from your teammates.
+- [ ] Resolve a merge conflict.
 - [ ] Add items to `Lessons_Learned.md`.
-  - What was the teams methodology for working on problems?
-  - What was the most difficult non-technical part of the project?
-  - What non-technical skills helped the team work better?
-  - How did you resolve differences of opinion?
+  - [ ] What was the team's methodology for working on problems?
+  - [ ] What was the most difficult non-technical part of the project?
+  - [ ] What non-technical skills helped the team work together better?
+  - [ ] How did you best resolve differences of opinion?
+  - [ ] What is something you want to get better at?
 
 
 ## 🛠 Tech Stack <a name="tech-stack"></a>
@@ -89,27 +91,28 @@ This command is an alias for the following shell commands:
 	source env/bin/activate # start the virtual environment
 	pip3 install -r requirements.txt # install non-standard python libraries
 ```
-If `make` does not work or produces errors, the above commands can be run individually in the terminal. Some may require administrative privileges to execute.
+If `make` does not work or produces errors, the above commands can be run individually in the terminal.
+Some may require administrative privileges to execute successfully.
 
 ### Suggested Workflow
 
 Use the following as a starting point for your teams workflow. Change any and every part of this proposed process to best suit the team.
 
-
 ```bash
-    # create a working branch for a given challenge
-    git checkout -b <challenge-name> 
+# create a working branch for a given challenge
+git checkout -b reverse_string 
 
-    # implement code to complete a challenge eg:
-    rm -f reverse-string/reverse_string.py
-    echo "def reverse_string(str):\n  return str[::-1]" > reverse-string/reverse_string.py
+# implement code to complete a challenge:
+rm -f reverse-string/reverse_string.py
+echo "def reverse_string(str):\n  return str[::-1]\n" > reverse-string/reverse_string.py
 
+# verify that all test cases pass
+pytest reverse-string # verify that all test cases pass
 
-    pytest <challenge-name>_test.py # test a specific challenge
-    pytest # test all challenges
+git commit -am 'solve: reverse_string' # Commit changes to your local branch
+git push # Update the remote branches git history to match the local branch
 
-    git commit -am 'feat: <challenge-name> Complete!' # Commit changes to your local branch
-    git push # Update the remote branches git history to match the local branch
+gh pr create --fill
 ```
 
 
